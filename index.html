@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VELO — Modern Clothing Brand</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">VELO</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#new-arrivals">New Arrivals</a></li>
+      <li><a href="#collections">Collections</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="cart-btn" id="cartBtn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <button class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <span class="hero-tag">New Season 2025</span>
+      <h1 class="hero-title">DRESS<br/>YOUR<br/>WORLD.</h1>
+      <p class="hero-sub">Fashion that moves with you. Bold pieces, minimal waste, maximum style.</p>
+      <div class="hero-cta">
+        <button class="btn-primary" onclick="document.getElementById('new-arrivals').scrollIntoView({behavior:'smooth'})">Shop Now</button>
+        <button class="btn-outline" onclick="document.getElementById('collections').scrollIntoView({behavior:'smooth'})">Explore Collections</button>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80" alt="Hero Model" />
+    </div>
+    <div class="hero-scroll-indicator">
+      <span>SCROLL</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- MARQUEE TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker" id="ticker">
+      <span>FREE SHIPPING OVER ₹999</span>
+      <span>★</span>
+      <span>NEW ARRIVALS EVERY WEEK</span>
+      <span>★</span>
+      <span>SUSTAINABLE FASHION</span>
+      <span>★</span>
+      <span>PREMIUM QUALITY FABRICS</span>
+      <span>★</span>
+      <span>FREE RETURNS IN 30 DAYS</span>
+      <span>★</span>
+      <span>FREE SHIPPING OVER ₹999</span>
+      <span>★</span>
+      <span>NEW ARRIVALS EVERY WEEK</span>
+      <span>★</span>
+      <span>SUSTAINABLE FASHION</span>
+      <span>★</span>
+      <span>PREMIUM QUALITY FABRICS</span>
+      <span>★</span>
+      <span>FREE RETURNS IN 30 DAYS</span>
+      <span>★</span>
+    </div>
+  </div>
+
+  <!-- NEW ARRIVALS -->
+  <section class="section" id="new-arrivals">
+    <div class="section-header">
+      <span class="section-tag">Fresh Drops</span>
+      <h2 class="section-title">New Arrivals</h2>
+    </div>
+    <div class="product-grid" id="newArrivalsGrid"></div>
+  </section>
+
+  <!-- BANNER STRIP -->
+  <section class="mid-banner">
+    <div class="mid-banner-text">
+      <h2>BOLD LOOKS.<br/>FAIR PRICES.</h2>
+      <p>Street-ready. Office-approved. Weekend-perfect.</p>
+      <button class="btn-primary light" onclick="document.getElementById('collections').scrollIntoView({behavior:'smooth'})">View All</button>
+    </div>
+    <div class="mid-banner-image">
+      <img src="https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?w=600&q=80" alt="Banner" />
+    </div>
+  </section>
+
+  <!-- COLLECTIONS -->
+  <section class="section" id="collections">
+    <div class="section-header">
+      <span class="section-tag">Curated For You</span>
+      <h2 class="section-title">Collections</h2>
+    </div>
+    <div class="collections-grid">
+      <div class="collection-card big" onclick="filterCategory('Men')">
+        <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=700&q=80" alt="Men" />
+        <div class="collection-overlay"><span>Men</span></div>
+      </div>
+      <div class="collection-card" onclick="filterCategory('Women')">
+        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=400&q=80" alt="Women" />
+        <div class="collection-overlay"><span>Women</span></div>
+      </div>
+      <div class="collection-card" onclick="filterCategory('Streetwear')">
+        <img src="https://images.unsplash.com/photo-1519058082700-08a0b56da9b4?w=400&q=80" alt="Streetwear" />
+        <div class="collection-overlay"><span>Streetwear</span></div>
+      </div>
+      <div class="collection-card" onclick="filterCategory('Accessories')">
+        <img src="https://images.unsplash.com/photo-1523381294911-8d3cead13475?w=400&q=80" alt="Accessories" />
+        <div class="collection-overlay"><span>Accessories</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALL PRODUCTS WITH FILTER -->
+  <section class="section" id="all-products">
+    <div class="section-header">
+      <span class="section-tag">Everything</span>
+      <h2 class="section-title">Browse All</h2>
+    </div>
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="All">All</button>
+      <button class="filter-btn" data-filter="Men">Men</button>
+      <button class="filter-btn" data-filter="Women">Women</button>
+      <button class="filter-btn" data-filter="Streetwear">Streetwear</button>
+      <button class="filter-btn" data-filter="Accessories">Accessories</button>
+    </div>
+    <div class="product-grid" id="allProductsGrid"></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about-section" id="about">
+    <div class="about-image">
+      <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80" alt="About" />
+    </div>
+    <div class="about-content">
+      <span class="section-tag">Our Story</span>
+      <h2>Fashion with a conscience.</h2>
+      <p>VELO was born from one belief — that great style should never come at the planet's expense. We create timeless pieces using sustainably sourced fabrics, fair-trade manufacturing, and zero-waste packaging.</p>
+      <p>From the streets of Mumbai to the runways of fashion weeks, VELO blends Indian craftsmanship with global aesthetics.</p>
+      <div class="about-stats">
+        <div class="stat"><span class="stat-num" data-target="120">0</span><span class="stat-label">Styles</span></div>
+        <div class="stat"><span class="stat-num" data-target="50000">0</span><span class="stat-label">Customers</span></div>
+        <div class="stat"><span class="stat-num" data-target="6">0</span><span class="stat-label">Years</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <h2>Stay in the loop.</h2>
+    <p>New drops, exclusive deals and style inspiration — straight to your inbox.</p>
+    <div class="newsletter-form">
+      <input type="email" id="emailInput" placeholder="your@email.com" />
+      <button onclick="subscribeNewsletter()">Subscribe</button>
+    </div>
+    <p class="newsletter-msg" id="newsletterMsg"></p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">VELO</div>
+        <p>Modern clothing for modern humans.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#new-arrivals">New Arrivals</a></li>
+          <li><a href="#collections">Collections</a></li>
+          <li><a href="#all-products">All Products</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Help</h4>
+        <ul>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Shipping Info</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 VELO. All rights reserved.</p>
+      <div class="social-links">
+        <a href="#">Instagram</a>
+        <a href="#">Pinterest</a>
+        <a href="#">Twitter</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CART SIDEBAR -->
+  <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button onclick="toggleCart()">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <p class="cart-empty">Your cart is empty.</p>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none">
+      <div class="cart-total">Total: <strong id="cartTotal">₹0</strong></div>
+      <button class="btn-primary" style="width:100%">Checkout</button>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
